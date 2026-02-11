@@ -20,7 +20,7 @@ Click the Sync button to pull the latest changes
 
 Under each session folder, you'll find a starter folder containing the exercise materials. 
 
-🙅‍♀️ IMPORTANT: Do NOT edit files directly in the master folder.
+🙅‍♀️ IMPORTANT: Do NOT edit files directly in the starter folder.
 
 ### 3. Create Your Personal Workspace
 
@@ -38,7 +38,7 @@ After completing your exercise or making any changes:
 
 Commit your changes with a descriptive message 
 
-Push/Sync to GitHub
+Push/Sync Changes to GitHub
 
 
 ####  Folder Structure Example

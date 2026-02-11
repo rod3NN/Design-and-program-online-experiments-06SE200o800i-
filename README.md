@@ -11,7 +11,7 @@ prerequisites: clone the current repo (see session1 slide)
 ### 1. Get the Latest Updates
 Open VS Code
 
-Go to Source Control (Ctrl+Shift+G / Cmd+Shift+G)
+Go to Source Control
 
 Click the Sync button to pull the latest changes
 

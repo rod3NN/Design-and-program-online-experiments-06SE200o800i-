@@ -1,8 +1,6 @@
 # Design-and-program-online-experiments-06SE200o800i-
 For exercise &amp; assignment submission. 
 
-# Working with This Repository - Student Guide
-
 prerequisites: clone the current repo (see session1 slide)
 
 ## On-Class Practical Exercise Workflow
@@ -42,8 +40,30 @@ Push/Sync Changes to GitHub
 
 
 ####  Folder Structure Example
-session1/ <br>
+Session1/ <br>
 ├── starter/          ← DO NOT TOUCH! Original materials. Please copy one to your personal workspace! <br>
-├── marry_jen/        ← Another student's workspace <br>
-├── john_doe/         ← Another student's workspace <br>
+├── marry_J/        ← Another student's workspace <br>
+├── john_D/         ← Another student's workspace <br>
 └── your_name/        ← Your workspace <br>
+
+
+## Assignment Workflow 
+
+### 1. Each group will be assigned a private repository
+
+- Work together as a group in your private repo
+- **Commit and push frequently** as you make progress
+- All group members should contribute (commits from everyone)
+- Use meaningful commit messages (e.g., "added consent form", "fixed timing bug")
+
+### 2. Submit before the deadline
+
+- The **last commit version before the deadline** will be marked
+- Ensure all your work is pushed to GitHub
+- No extensions - commit history shows when work was done
+
+### 3. Group Contribution
+
+- I will check commit history to verify everyone contributed
+- Make sure each member's GitHub account is linked
+- Discuss and divide tasks clearly

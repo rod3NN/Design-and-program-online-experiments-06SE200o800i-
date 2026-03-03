@@ -1,0 +1,10 @@
+/* this is my external style */
+* {
+    text-align: right;
+}
+.highlight {
+    font-size:25;
+}
+#container {
+    background-color:blanchedalmond;
+}

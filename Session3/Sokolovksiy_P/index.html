@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h2 {
+            color:goldenrod;
+        }
+    </style>
+    <link rel="stylesheet" href="myFirstCSS.css">
+    <title>My page</title>
+</head>
+<body>
+    <h1>My main heading</h1>
+    <p>line one.<br>line two.</p>
+    <p>A paragraph with <strong>bold</strong> text.</p>
+    <p>A paragraph with <em>italic</em> text.</p>
+
+    <div>
+        <h2>Generic grouped content</h2>
+        <p>Another paragraph inside a div.</p>
+    </div>
+    <hr>
+    <h3>heading after the horizontal line.</h3>
+    <p>
+          with a <span style= "color:red; background-color: gold;">red</span> word.
+    </p>
+    <hr>
+
+    <h2>Unordered list</h2>
+    <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+
+    <h2>Ordered list</h2>
+    <ol>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ol>
+
+    <form>
+        <label>Name</label>
+        <input type="text" placeholder="enter your name" required>
+        <br><label>Age</label>
+        <input type="age" placeholder="enter your age" min="12" max ="50" required>
+        <br><label>Programming Level</label>
+        <input type="range" min="1" max="5">
+        <br><label>Confirm the data</label>
+        <input type="checkbox">OR<input type="radio">
+        <br><label>What's your favourite input type?</label>
+        <select name="input" id="input_type">
+            <option>text</option>
+            <option>number</option>
+            <option>range</option>
+            <option>checkbox</option>
+            <option>radio</option>
+        </select>
+        <br><input type="submit">
+        <input type="reset" value="Restart">
+    </form>
+    <div style="color:blue; text-align: center;">
+        <h2>Generic grouped content</h2>
+        <p style="font-size: 15px">
+            Trial with text alignment
+        </p>
+    </div>
+    <div id ="container">
+        <p class="highlight">This is a highlighted text.</p>
+    </div>
+
+</body>
+</html>

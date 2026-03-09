@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroop Effect - Color Naming Task</title>
+    <style>
+        * {
+            background:aquamarine;
+        }
+        form {
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Stroop Task</h1>
+    <div>
+        <p>In this Task you have to name the color of the words you will see.</p>
+        <p>Ignore the written word itself.</p>
+    </div>
+    <div style="display: inline-block">
+        <h3>Congruent Section</h3>
+        <p><span style="color:yellow">yellow</span></p>
+        <p><span style="color:red">red</span></p>
+        <p><span style="color:green">green</span></p>
+        <p><span style="color:blue">blue</span></p>
+        <p><span style="color:purple">purple</span></p>
+    </div>
+    <br>
+    <div style="display: inline-block">
+        <h3>Incongruent Section</h3>
+        <p><span style="color:red">yellow</span></p>
+        <p><span style="color:green">red</span></p>
+        <p><span style="color:purple">green</span></p>
+        <p><span style="color:yellow">blue</span></p>
+        <p><span style="color:blue">purple</span></p>
+    </div>
+
+    <form>
+        <label>How many seconds did the congruent section take?</label>
+        <input type="number">
+        <br><label>How many seconds did the incongruent section take?</label>
+        <input type="number">
+        <br><label>Did you find the incongruent section harder?</label>
+        <select>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Somewhat</option>
+        </select>
+        <br><input type="submit">
+    </form>
+</body>
+</html>

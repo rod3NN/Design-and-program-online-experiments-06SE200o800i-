@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perceived Stress Scale</title>
+    <style>
+        * {
+            background-color: #f0f4f8;
+        }
+        body { 
+            max-width: 600px;
+            text-align: center;
+        }
+        div {
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: saddlebrown;
+            border-left: 2px solid black;
+            
+            border-right: 2px solid black;
+        }
+        p {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label>How stressed did you feel today?</label>
+        <br><input type="range" min="0" max="100">
+        <p><span style="color:red">Not at all</span> OR 
+            <span style="color:green">Extremely</span></p>
+    </div>
+    <div>
+        <label>How alert do you feel?</label>
+        <br><input type="range" min="0" max="100">
+        <p><span style="color:red">Not at all</span> OR 
+            <span style="color:green">Extremely</span></p>
+    </div>
+
+    <div>
+        <label>How would you rate your sleep quality?</label>
+        <br><input type="range" min="0" max="100">
+        <p><span style="color:red">Not at all</span> OR 
+            <span style="color:green">Extremely</span></p>
+    </div>
+</body>
+</html>

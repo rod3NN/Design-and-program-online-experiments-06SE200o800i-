@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        form {
+            border: 2px solid black;
+            text-align: left;
+            margin: 15px;
+        }
+        div {
+            margin-bottom: 3px;
+            margin-left: 5px
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2 id="top">Informed Consent Form</h2>
+        <div>
+            <label>Participant ID</label>
+            <input type="text" placeholder = "P001" required>
+        </div>
+        
+        <div>
+            <br><label>Age</label>
+            <input type="number" min="18" max ="99">
+        </div>
+        
+        <div>
+            <br><select>
+                <option>Online</option>
+                <option>Lab(Zurich)</option>
+                <option>Lab(Basel)</option>
+            </select>
+        </div>
+
+        <br><label>I have read and understood the information</label>
+        <input type="checkbox">
+        <br><label>Left-Handed</label>
+        <input type="radio" name="handedness">
+        <br><label>Right-Handed</label>
+        <input type="radio" name="handedness">
+        <br><label>Ambidextrous</label>
+        <input type="radio" name="handedness">
+        <br><input type="submit" value ='Proceed to Study'>
+    </form>
+</body>
+</html>

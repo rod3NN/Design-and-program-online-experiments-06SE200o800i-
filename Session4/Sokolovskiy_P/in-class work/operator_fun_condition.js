@@ -12,8 +12,8 @@ console.log(example); // ? -> 10
 
 let a = 8;
 let b = 2;
-console.log(a+b); // ?
-console.log(8**2); // ?
+console.log(a+b); // 10
+console.log(8**2); // 64
 
 
 /* 4.2.2: Equality and Strict Equality:
@@ -21,10 +21,10 @@ First, work out from what you understand by replacing the ? with your expected o
 let x = 5;
 let y = "5";
 
-console.log(x == y);  // ?
-console.log(x === y); // ?
-console.log(x != y);  // ?
-console.log(x !== y); // ?
+console.log(x == y);  // true
+console.log(x === y); // false
+console.log(x != y);  // false
+console.log(x !== y); // true
 
 
 /* 4.2.3: logical operators:
@@ -32,14 +32,14 @@ First, work out from what you understand by replacing the ? with your expected o
 let isAdult = true;
 let hasNormalVision = false;
 
-console.log(isAdult && hasNormalVision); // ?
-console.log(isAdult || hasNormalVision); // ?
+console.log(isAdult && hasNormalVision); // false
+console.log(isAdult || hasNormalVision); // true
 
 let score = 50;
 
-console.log(score > 40 && score < 60);  // ?
-console.log(score * 2 === 100);         // ?
-console.log(score % 2 === 0 || score < 0); // ?
+console.log(score > 40 && score < 60);  // true
+console.log(score * 2 === 100);         // true
+console.log(score % 2 === 0 || score < 0); // true
 
 
 /* 4.2.4: what this newFunction will return:  
@@ -50,7 +50,7 @@ function newFunction(a,b) {
     return { a, b, c};
 }
 let myResults = newFunction(1, 3);
-console.log("my results:", myResults); // ?
+console.log("my results:", myResults); // 4, 3, [1, 3]
 
 /* 4.2.5: Verify your answers by running the JavaScript script in operator.html. Open the browser's developer console and check the logged output. Compare the results with the expected answers from the previous steps. */
 
@@ -66,9 +66,13 @@ If the age is outside this range, display an alert() with the message:
 */
 
 // First try when age = 25 
-let age = 25;
+let age = 19;
 console.log("Try age =", age);
-
+if (age <= 35 & age >= 18) {
+    console.log(`The current participant's age is ${age}, within 18-35; Participant is eligible for the experiment`)
+} else{
+    alert('Participant is not eligible for the experiment due to age!')
+} 
 // Then try when age = 17
 
 
@@ -78,8 +82,8 @@ Then, uncomment two console.log()lines to check your answers.
 */
 let value = "5";
 let result = value * 2;
-// console.log(result);        // ?
-// console.log(typeof result); // ?
+console.log(result);        // 10
+console.log(typeof result); // number
 // When a string is used in an arithmetic operation, JavaScript attempts to convert it into a number.
 
 /* # Plus 2: Arithmetic Operation, Type Coercion and Strict Equality 
@@ -95,9 +99,9 @@ let totalPoints = points + bonus;
 let isEqual = totalPoints == 105;  
 let isStrictEqual = totalPoints === 105; 
 
-// console.log(totalPoints);   // ?
-// console.log(isEqual);       // ?
-// console.log(isStrictEqual); // ?
+console.log(totalPoints);   // 105
+console.log(isEqual);       // true
+console.log(isStrictEqual); // false
 
 
 /* Plus 3: 

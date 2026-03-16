@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let participantID = "P042";
+        let reactionTime = 487;
+        let consentGiven = true;
+        let experimentData = null;
+        let currentBlock;     // no value assigned
+        console.log(typeof(participantID));
+        console.log(typeof(reactionTime));
+        console.log(typeof(consentGiven));
+        console.log(typeof(experimentData));
+        console.log(typeof(currentBlock));
+        const conditions = ["congruent", "incongruent", "neutral"];
+        const participant = { id: "P042", age: 23, consent: true}
+        console.log(conditions[0])
+        console.log(conditions[2])
+        console.log(participant.age)
+        console.log(participant["id"])
+    </script>
+</body>
+</html>

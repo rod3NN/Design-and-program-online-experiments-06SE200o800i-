@@ -10,9 +10,11 @@
  // console.log each iterate index and each reactionTime value accordingly in the loop
  let reactionTimes = [];
  // add your code here
-
-
- console.log("reactionTimes: ",reactionTimes);
+for (let i = 0; i < 10; i ++) {
+    reactionTimes[i] = recordedTimes[i] - 200;
+    console.log(`Reaction time for iterate ${i}: ${reactionTimes[i]}`);
+}
+console.log("reactionTimes: ",reactionTimes);
 
 
  
@@ -33,9 +35,10 @@ let totalTime = 0;
 let thisTrial;
 let j = 0
 
+while (totalTime < 2000) {
+    j++;
+    totalTime += reactionTimes[j];
+    thisTrial = j
+}
 
-
-
-
-
- console.log(`Cumulative reaction time exceeded 2000 ms at trial ${thisTrial}.`);
+ console.log(`Cumulative reaction time exceeded 2000 ms at trial ${thisTrial+1}.`);

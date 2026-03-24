@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="session6.css">
       <title>Session 6</title>
+      <script src="https://unpkg.com/jspsych@8.2.3"></script>
+      <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+      <link href="https://unpkg.com/jspsych@8.2.3/css/jspsych.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <h1>6.2 Add array_method_exercise.js to this HTML</h1>
-    
+    <script>
+        const jsPsych = initJsPsych(); 
+        const hello_trial = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: "hello world!"
+        }
+        jsPsych.run([hello_trial]);
+    </script>
     
 </body>
 </html>

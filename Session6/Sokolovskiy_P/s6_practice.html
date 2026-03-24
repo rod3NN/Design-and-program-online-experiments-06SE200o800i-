@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const responseTimes = [350, 420];
+        responseTimes.push(500); //push: adds one or more to the end
+        console.log(responseTimes);
+        const lastTime = responseTimes.pop(); //pop: deletes one from the end
+        console.log(lastTime);
+        const conditions = ['easy', 'medium', 'hard'];
+        const condition1 = conditions.shift(); //shift: deletes the first one 
+        console.log(condition1);
+        conditions.unshift('superEasy', 'easy'); //unshift: adds one or more to the beginning
+        console.log(conditions);
+        //
+        const avg = responseTimes.reduce((sum, rt) => sum + rt, 0) / responseTimes.length; 
+        console.log(avg);
+        console.log(responseTimes);
+        const responseTimes2 = [510, 350, 420];
+        console.log(responseTimes2.sort());
+        console.log(responseTimes2.sort((a, b) => b - a));
+        console.log(responseTimes2.reverse());
+        const keysPressed = ["space", "enter"];
+        console.log(keysPressed.includes("space"));
+        //
+        const responseTimes3 = [50, 420, 510];
+        const firstOver400 = responseTimes3.find(rt => rt > 400);
+        console.log(firstOver400);
+
+        const validTime = responseTimes3.filter(rt => rt > 400);
+        console.log(validTime);
+
+        const allValid = responseTimes3.every(rt => rt < 2000);
+        console.log(allValid);
+        
+        const outlier = responseTimes3.some(rt => rt < 250);
+        console.log(outlier);
+        //
+        const responseTimes4 = [350, 400, 510, 5];
+        const timesInSec = responseTimes4.map(rt => rt / 1000);
+        console.log(timesInSec);
+        let newvar = []; 
+        responseTimes4.forEach(
+            (time, index) => newvar[index] = time / 2);
+        console.log(newvar)
+        //
+        const cleanTime = responseTimes4
+            .filter((time) => time > 300)
+            .map((time) => time - 300)
+        console.log(`Adjusted time: ${cleanTime} ms`)
+
+    </script>
+</body>
+</html>

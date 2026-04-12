@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //task 5
+        /* let age = 25;
+        let participatedBefore = true;
+        let normalVision = true;
+        console.log(age >= 18 && age <= 40);
+        console.log(age >= 18 && age <= 40 && participatedBefore == false && normalVision == true); */
+
+        //task 10
+        let age = 25;
+        let participated = false;
+        let vision = true;
+
+        if (age >= 18 & age <= 40 && participated == false && vision == true) {
+            console.log("Eligible for the experiment")
+        } else if (age < 18 || age > 40) {
+            console.log("Not eligible: age out of range")
+        } else if (participated) {
+            console.log("Not eligible: has participated before")
+        } else if (!vision) {
+            console.log("Not eligible: vision requirement not met")
+        }
+
+
+    </script>
+</body>
+</html>

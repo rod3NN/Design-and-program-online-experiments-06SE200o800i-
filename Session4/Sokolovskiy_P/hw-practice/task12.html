@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 11</title>
+</head>
+<body>
+    <script>
+        const rt_congruent = [400, 470, 430, 485];
+        const rt_incongruent = [520, 600, 540, 620];
+        function average(arr) {
+            let total = 0;
+            for (let i = 0; i < arr.length; i++) {
+                total += arr[i];
+            }
+            return (total / arr.length);
+        }
+        function stroopEffect (rt_congruent, rt_incongruent) {
+            return (average(rt_incongruent) - average(rt_congruent));
+        }
+
+        function classify (diff) {
+            if (diff > 100) {
+                return("large");
+            } else if (diff >= 50 && diff <= 100) {
+                return("medium");
+            } else {
+                return("small");
+            }
+        }
+        console.log(`Stroop Effect: ${stroopEffect(rt_congruent, rt_incongruent)} -> ${classify(stroopEffect(rt_congruent, rt_incongruent))}`)
+    </script>
+</body>
+</html>

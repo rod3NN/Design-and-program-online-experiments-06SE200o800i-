@@ -15,11 +15,11 @@
         console.log(age >= 18 && age <= 40 && participatedBefore == false && normalVision == true); */
 
         //task 10
-        let age = 25;
+        /*let age = 25;
         let participated = false;
         let vision = true;
 
-        if (age >= 18 & age <= 40 && participated == false && vision == true) {
+        if (age >= 18 && age <= 40 && participated == false && vision == true) {
             console.log("Eligible for the experiment")
         } else if (age < 18 || age > 40) {
             console.log("Not eligible: age out of range")
@@ -27,7 +27,37 @@
             console.log("Not eligible: has participated before")
         } else if (!vision) {
             console.log("Not eligible: vision requirement not met")
+        } */
+        // task 11
+        const config = {
+            studyName: "Stroop Task",
+            numTrials: 40,
+            conditions: ["congruent", "incongruent", "neutral"],
+            minAge: 18,
+            maxAge: 40
+        };
+        const participant = {
+            id: "P001",
+            age: 54,
+            consentGiven: "yes",
+            completedBefore: "no"
+        };
+        function checkParticipant (participant, config) {
+            if (participant.age >= config.minAge && participant.age <= config.maxAge) {
+                return("Eligible")
+            } else {
+                console.log(`Cannot start: participant ${participant.id} is not eligible.`);
+                console.log(`Reason: age out of range (${participant.age} not in 18-40)`);
+            }
         }
+        function startExperiment (participant, config) {
+            if (checkParticipant (participant, config) == "Eligible") {
+                console.log(`Starting experiment: ${config.studyName}`);
+                console.log(`Participant: ${participant.id} | Age: ${participant.age}`);
+                console.log(`Trials: ${config.numTrials} | Conditions: ${config.conditions}`)
+            }
+        }
+        startExperiment(participant, config);
 
 
     </script>

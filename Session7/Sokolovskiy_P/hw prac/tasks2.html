@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/jspsych@7.3.4"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-canvas-keyboard-response@1.1.3"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jspsych@7.3.4/css/jspsych.css">
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="400" style="background-color: black;"></canvas>
+    <script>
+        // Task 2
+        /*
+        const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#3b82f6";
+        ctx.fillRect(50, 50, 150, 80);
+        ctx.strokeStyle = "#eab308";
+        ctx.strokeRect(220, 50, 100, 80);
+        ctx.clearRect(80, 70, 40, 40);
+        */
+       // Task 3
+       /* const canvas = document.getElementById("myCanvas");
+       const ctx = canvas.getContext("2d");
+       ctx.beginPath();
+       ctx.moveTo(150, 50);
+       ctx.lineTo(100, 150);
+       ctx.lineTo(200,150);
+       ctx.closePath();
+
+       ctx.fillStyle = "lightgreen";
+       ctx.fill();
+
+       ctx.strokeStyle = "darkgreen";
+       ctx.stroke();
+
+       ctx.beginPath();
+       ctx.arc(300,100, 50, 0, 2* Math.PI);
+       ctx.closePath();
+       ctx.fillStyle = "lightblue";
+       ctx.fill();
+       ctx.strokeStyle = "blue";
+       ctx.stroke();*/
+       // Task 4
+       /*function getRandomInt (min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+       }
+       function randomDuration (options) {
+        const randomIndex = getRandomInt(0, options.length);
+        return options[randomIndex];
+       }
+       const durations = [1000, 2000, 3000];
+       for (let i = 0; i < 6; i ++) {
+        console.log(`Trial ${i+1} fixation: ${randomDuration(durations)} ms`);
+       }*/
+        // Task 5
+        /*const canvas = document.getElementById("myCanvas");
+        const ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.ellipse(250, 150, 80, 60, 0, 0, 2 * Math.PI);
+        ctx.fillStyle = "#ffcccb";
+        ctx.fill();
+        ctx.strokeStyle = "#cc6666";
+        ctx.stroke();
+        ctx.font = "16px Arial", ctx.fillStyle = "white";
+        ctx.fillText("Stimulus", 215, 240);
+        ctx.fillStyle = "white";
+        ctx.fillRect(230,325,40,10);
+        ctx.fillRect(245,310,10,40); */
+        // Task 6
+        const jsPsych = initJsPsych();
+        const welcome = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: "Press any key to start",
+            choices: "ALL_KEYS"
+        }
+        function drawfn (canvas) {
+            const ctx = canvas.getContext("2d");
+            ctx.fillStyle = "black";
+            ctx.fillRect(180, 195, 40, 10);  // horizontal bar
+            ctx.fillRect(195, 180, 10, 40);
+        }
+        const fixation = {
+            type: jsPsychCanvasKeyboardResponse,
+            canvas_size: [400, 400],
+            trial_duration: 1000,
+            choices: "NO_KEYS",
+            stimulus: drawfn
+        }
+        jsPsych.run([welcome, fixation]);
+    </script> 
+    
+</body>
+</html>

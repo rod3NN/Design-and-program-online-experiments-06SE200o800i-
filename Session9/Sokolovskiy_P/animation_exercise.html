@@ -71,11 +71,12 @@
                 function animate(timestamp) {
                     if (!startTime) startTime = timestamp;
                     const elapsed = timestamp - startTime;
-                    drawBall();
-                    updatePosition();
-                    applyBouncing();
+                    
                     // Run for 3 seconds, then stop
                     if (elapsed < 5000) {
+                        drawBall();
+                        updatePosition();
+                        applyBouncing();
                         animationId = requestAnimationFrame(animate);
                     } else {
                         // End animation

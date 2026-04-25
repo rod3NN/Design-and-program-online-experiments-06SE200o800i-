@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium Exercises: Integration</title>
+    <style>
+        #experiment {
+            text-align: center;
+            background-color: burlywood;
+            padding: 20px;
+        };
+        .trial-canvas {
+            border: 2px;
+            border-radius: 8px;
+        };
+        .caption {text-align: center; color:cornflowerblue};
+    </style>
+</head>
+<body>
+    <div id="experiment">
+        <canvas width="400" height="400" class="trial-canvas"></canvas>
+        <p class="caption" id="count-display"></p>
+    </div>
+    <script>
+        // Task 1
+        /*const trials = [
+            { id: 'P01', rt: 210, condition: 'congruent' },
+            { id: 'P02', rt: 455, condition: 'incongruent' },
+            { id: 'P03', rt: 312, condition: 'congruent' },
+            { id: 'P04', rt: 589, condition: 'incongruent' },
+            { id: 'P05', rt: 278, condition: 'congruent' },
+            { id: 'P06', rt: 401, condition: 'incongruent' },
+            { id: 'P07', rt: 195, condition: 'congruent' },
+            { id: 'P08', rt: 503, condition: 'incongruent' },
+        ];
+        for (const trial of trials) {
+            switch (trial.condition) {
+                case 'congruent':
+                    trial.label = 'CON';
+                    console.log(trial);
+                    break;
+                case 'incongruent':
+                    trial.label = 'INC';
+                    console.log(trial);
+                    break;
+            }
+        };
+        const fast = trials.filter(t => t.rt < 350);
+        console.log(fast);
+        const fastRTs = fast.map(t => t.rt);
+        console.log(fastRTs);
+        const meanRt = fastRTs.reduce((sum, rt) => sum + rt, 0) / fastRTs.length;
+        console.log(meanRt);
+        console.log(`Fast Trials: ${fast.length}, Mean RT: ${meanRt.toFixed(1)}ms`)*/
+        // Task 2
+        const canvas = document.querySelector('.trial-canvas');
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#1a1d27';
+        ctx.fillRect(0,0,400,400);
+
+        
+    </script>
+</body>
+</html>

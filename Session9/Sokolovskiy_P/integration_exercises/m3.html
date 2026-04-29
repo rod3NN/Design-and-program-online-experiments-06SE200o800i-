@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M3</title>
+</head>
+<body>
+    <script>
+        const words = [
+            { word: 'happy',   category: 'positive', freq: 82 },
+            { word: 'angry',   category: 'negative', freq: 45 },
+            { word: 'elated',  category: 'positive', freq: 12 },
+            { word: 'sad',     category: 'negative', freq: 67 },
+            { word: 'joyful',  category: 'positive', freq: 31 },
+            { word: 'furious', category: 'negative', freq: 8 },
+            { word: 'calm',    category: 'positive', freq: 55 },
+        ];
+        const buildTrials = (arr, thres) => arr
+            .filter(t => t.freq >= thres)
+            .sort((a, b) => b.freq - a.freq)
+            .map(t => ({
+                stimulus: '<p style="font-size:48px">WORD</p>',
+                data: { word: t.word, category: t.category },
+            }));
+        const res = buildTrials(words, 20);
+        //console.log(`Results ${JSON.stringify(res, null, 2)}`)
+        console.log(JSON.stringify(res, null, 2));
+
+    </script>
+</body>
+</html>

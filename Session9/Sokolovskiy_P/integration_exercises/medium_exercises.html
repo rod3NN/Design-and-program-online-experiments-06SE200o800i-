@@ -54,12 +54,30 @@
         console.log(meanRt);
         console.log(`Fast Trials: ${fast.length}, Mean RT: ${meanRt.toFixed(1)}ms`)*/
         // Task 2
-        const canvas = document.querySelector('.trial-canvas');
+        /*const canvas = document.querySelector('.trial-canvas');
         const ctx = canvas.getContext('2d');
         ctx.fillStyle = '#1a1d27';
         ctx.fillRect(0,0,400,400);
 
-        
+        let row = 0;
+        let col = 0;
+        let redCount = 0;
+        let blueCount = 0;
+        for (let row = 0; row < 5; row++) {
+            for (let col = 0; col < 5; col++) {
+                if (Math.random() < 0.5) {
+                    ctx.fillStyle = '#ef4444';
+                    redCount += 1;
+                } else {
+                    ctx.fillStyle = '#3b82f6'
+                    blueCount += 1
+                };
+                ctx.beginPath();
+                ctx.arc(col*70+55, row*70+55, 25, 0, 2*Math.PI);
+                ctx.fill()
+            };
+        };
+        console.log(`Red: ${redCount} Blue: ${blueCount}`); */
     </script>
 </body>
 </html>

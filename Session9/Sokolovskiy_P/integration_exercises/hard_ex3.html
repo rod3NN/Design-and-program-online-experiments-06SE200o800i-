@@ -37,6 +37,7 @@
 
         // ── Mic init ──────────────────────────────────────────────
         const initMic = { type: jsPsychInitializeMicrophone };
+        timeline.push(initMic);
 
         // Stimuli
         const items = [
@@ -74,15 +75,48 @@
             choices: "NO_KEYS",
             data: { phase: 'fixation' },
         };
-        timeline.push(fixation);
 
 
         const trialPairs = items.map (item => [
             fixation,
             {
-
+                type: jsPsychHtmlAudioResponse,
+                stimulus: `
+                    <p class="stimulus-word">${item.name.toUpperCase()}</p>
+                    <p class="stimulus-hint">Say the name out loud</p>`,
+                recording_duration: 4000,
+                show_done_button: true,
+                data: {
+                    phase: 'naming', 
+                    name: item.name, 
+                    category: item.category, 
+                    difficulty: item.difficulty,
+                },
             },
-        ])
+        ]).flat();
+        timeline.push(...trialPairs)
+
+        const endScreen = {
+            type: jsPsychHtmlButtonResponse,
+            stimulus: () => {
+                const total = jsPsych.data.get()
+                    .filter({phase: 'naming'}).count();
+                const nEasy = jsPsych.data.get()
+                    .filter({phase: 'naming', difficulty: 'easy'}).count();
+                const nMedium = jsPsych.data.get()
+                    .filter({ phase: 'naming', difficulty: 'medium' }).count();
+                const nHard = jsPsych.data.get()
+                .filter({ phase: 'naming', difficulty: 'hard' }).count();
+
+                return `<h2>Experiment Complete!</h2>
+                    <p>Total naming trials: <strong>${total}</strong></p>
+                    <p class="stat-row">Easy: ${nEasy} · Medium: ${nMedium} · Hard: ${nHard}</p>
+                    <p class="stimulus-hint">Data will be saved as JSON.</p>`;
+            },
+            choices: ['Finish'],
+            data: {phase: 'end'},
+        };
+        timeline.push(endScreen);
         jsPsych.run(timeline);
     </script>
 </body>

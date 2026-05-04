@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/jspsych@8.2.1"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-canvas-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-initialize-microphone@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-button-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-audio-response@2.1.0"></script>
+    <link href="https://unpkg.com/jspsych@8.2.1/css/jspsych.css" rel="stylesheet" type="text/css" />
+    <style>
+        .stimulus-word {
+            font-size: 48px; font-weight: bold; 
+        };
+        #experiment-title {color: '#eab308'; font-size: 1.8rem};
+        .stat-row {background: #242835; padding: 6px 14px;
+                      border-radius: 6px; display: inline-block;
+                      margin: 4px 0;};
+    </style>
+</head>
+<body>
+    <script>
+        const jsPsych = initJsPsych({
+            on_finish: (data) => {
+                jsPsych.data.get().localSave('json', 'naming_data.json');
+            }
+        });
+        jsPsych.data.addProperties({
+            participant_id: "P001",
+            session: 1,
+            experiment: 'picture_naming',
+        })
+        const timeline = [];
+
+        // ── Mic init ──────────────────────────────────────────────
+        const initMic = { type: jsPsychInitializeMicrophone };
+
+        // Stimuli
+        const items = [
+            { name: 'apple',  category: 'fruit',  difficulty: 'easy' },
+            { name: 'wrench', category: 'tool',   difficulty: 'medium' },
+            { name: 'cat',    category: 'animal', difficulty: 'easy' },
+            { name: 'pliers', category: 'tool',   difficulty: 'hard' },
+        ];
+
+        //Instructions
+        const instruction = {
+            type: jsPsychHtmlKeyboardResponse,
+            stimulus: `
+                <h2 id="experiment-title">Picture Naming Task</h2>
+                <p>You will see a fixation cross, then an item name.</p>
+                <p>Say the name of the item out loud.</p>
+                <p><em>Press any key to begin.</em></p>`,
+            choices: "ALL_KEYS",
+            data: { phase: 'instruction' },
+        };
+        timeline.push(instruction);
+        // Fixation
+        const fixation = {
+            type: jsPsychCanvasKeyboardResponse,
+            canvas_size: [300, 300],
+            stimulus: (canvas) => {
+                const ctx = canvas.getContext('2d');
+                const cx = canvas.width / 2;
+                const cy = canvas.height / 2;
+                ctx.fillStyle = "black";
+                ctx.fillRect(cx - 20, cy - 3, 40, 6);
+                ctx.fillRect(cx - 3, cy - 20, 6, 40);
+            },
+            trial_duration: 800,
+            choices: "NO_KEYS",
+            data: { phase: 'fixation' },
+        };
+        timeline.push(fixation);
+
+
+        const trialPairs = items.map (item => [
+            fixation,
+            {
+
+            },
+        ])
+        jsPsych.run(timeline);
+    </script>
+</body>
+</html>

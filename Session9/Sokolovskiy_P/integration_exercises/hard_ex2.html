@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/jspsych@7.3.4"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-canvas-keyboard-response@1.1.3"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jspsych@7.3.4/css/jspsych.css">
+</head>
+<body>
+    <canvas id="memoryCanvas" width="400" height="400"></canvas>
+    <script>
+        const colors = ['#ef4444', '#3b82f6', '#22c55e', '#eab308', '#a855f7'];
+        const shapes = ['circle', 'square'];
+        function generateBoard (n) {
+            const board = [];
+            for (let i = 0; i < n; i++) {
+                let item = {
+                    x: Math.floor(Math.random() * 301) + 50, 
+                    y: Math.floor(Math.random() * 301) + 50, 
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    shape: shapes[Math.floor(Math.random() * shapes.length)],
+                };
+                board.push(item);
+            };
+            return board
+        }
+        console.log(JSON.stringify(generateBoard(5)))
+        console.log(typeof(JSON.stringify(generateBoard(5))))
+        orig = generateBoard(5)
+        strng = JSON.stringify(generateBoard(5))
+        prs = JSON.parse(strng)
+        console.log(prs)
+        console.log(typeof(prs))
+        const valid = prs.every(s => typeof s.shape === 'string');
+        console.log(valid);
+
+        function drawBoard (ctx, board) {
+            ctx.fillStyle = '#1a1d27';
+            ctx.fillRect(0, 0, 400, 400);
+
+            board.forEach(item => {
+                ctx.fillStyle = item.color;
+                if (item.shape === 'circle') {
+                    ctx.beginPath();
+                    ctx.arc(item.x, item.y, 30, 0, Math.PI*2);
+                    ctx.fill();
+                } else {
+                    ctx.fillRect(item.x -15, item.y - 15, 30, 30);
+                };
+            });
+        };
+        const canvas = document.getElementById('memoryCanvas');
+        const ctx = canvas.getContext('2d');
+        drawBoard(ctx, prs);
+    </script>
+</body>
+</html>

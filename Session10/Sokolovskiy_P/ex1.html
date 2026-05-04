@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    Task 1
+        <button onclick="handleInline()">1 — Inline</button>
+        <button id="btn-dom">2 — DOM Property</button>
+        <button id="btn-listener">3 — addEventListener</button>
+        <p id="output">Click a button...</p>
+    -->
+    <div id="area" style="width:400px; height:200px; background:#1a1d27;border:2px solid #2e3345; border-radius:8px; padding:20px">
+        Click or press a key anywhere on this page
+    </div>
+    <p id="log"></p>
+    <script>
+        // Task 1
+        /*const output = document.getElementById('output');
+        function handleInline () {
+            output.textContent = 'Inline handler fired!';
+        };
+        document.getElementById("btn-dom").onclick = function () {
+            output.textContent = 'DOM property handler fired!';
+        };
+        document.getElementById('btn-listener').addEventListener('click', () => {
+            output.textContent = 'addEventListener fired!';
+        }); */
+
+        // Task 2
+        const log = document.getElementById('log');
+        document.addEventListener('click', (event) => {
+            log.innerHTML = `
+                <strong>Click Event</strong><br>
+                Type: ${event.type}<br>
+                Target: ${event.target.tagName}<br>
+                Position: (${event.clientX}, ${event.clientY})`;
+        });
+        document.addEventListener('keydown', (event) => {
+            log.innerHTML = `
+                <strong>Keydown Event</strong><br>
+                Type: ${event.type}<br>
+                Key: "${event.key}"<br>
+                Code: ${event.code}`;
+        });
+    </script>
+    
+</body>
+</html>

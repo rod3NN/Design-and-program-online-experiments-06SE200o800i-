@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="stimulus" style="width:300px; height:300px; background-color: grey; padding: 10px;">
+        <p id="info">Welcome to the Experiment!</p>
+        <p id="result">Here you will see your results!</p>
+    </div>
+    <script>
+        const stimulus = document.getElementById("stimulus");
+        const info = document.getElementById('info');
+        const result = document.getElementById('result');
+        
+        let signalTime = null;
+        let timerId = null;
+
+        function startTrial () {
+            // Reset
+            signalTime = null;
+            stimulus.style.backgroundColor = '#2e3345';
+            info.textContent = 'Wait for green...';
+            result.textContent = '';
+            
+            // Start
+            const delay = Math.floor(Math.random() * 3001) + 1000
+            timerId = setTimeout(() => {
+                stimulus.style.backgroundColor = "green";
+                signalTime = Date.now();
+                info.textContent = 'NOW! Press SPACE!';
+            }, delay);
+        };
+        function handleKey(event) {
+            if (event.code !== 'Space') {return};
+
+            if (signalTime == null) {
+                clearTimeout(timerId);
+                info.textContent = 'Too early! Restarting...';
+                info.style.color = '#ef4444';
+                setTimeout(() => {
+                    info.style.color = '#e4e6f0';
+                    startTrial();
+                }, 1500);
+            } else {
+                const rt = Date.now() - signalTime;
+                stimulus.style.backgroundColor = '#eab308';
+                info.textContent = 'Response recorded!';
+                result.textContent = `Reaction time: ${rt}ms`;
+                document.removeEventListener('keydown', handleKey);
+            }
+        }
+        document.addEventListener('keydown', handleKey);
+        startTrial();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium Exercises</title>
+    <script src="https://unpkg.com/jspsych@8.2.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-canvas-keyboard-response@2.1.0"></script>
+    <link href="https://unpkg.com/jspsych@8.2.3/css/jspsych.css" rel="stylesheet" type="text/css" >
+</head>
+<body>
+    <div id="color-box" style="width:300px; height:300px; background-color:antiquewhite; border:2px; padding: 12px;">
+        <p id="status">Status Text</p>
+    </div>
+    <script>
+        const box = document.getElementById("color-box");
+        const status = document.getElementById("status");
+
+        document.addEventListener('keydown', (event) => {
+            const key = event.key.toLowerCase();
+            switch (key) {
+                case 'r':
+                    box.style.backgroundColor = "#ef4444";
+                    status.textContent = `Red: (key: ${event.key}, code: ${event.code})`;
+                    break;
+                case 'g':
+                    box.style.backgroundColor = "#22c55e";
+                    status.textContent = `Green: (key: ${event.key}, code: ${event.code})`;
+                    break;
+                case 'b':
+                    box.style.backgroundColor = 'blue';
+                    status.textContent = `Blue: (key: ${event.key}, code: ${event.code})`;
+                    break;
+                default:
+                    status.textContent = `Unknown key: "${event.key}" (code: ${event.code})`;
+            };
+        });
+    </script>
+</body>
+</html>

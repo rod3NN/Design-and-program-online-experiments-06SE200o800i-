@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="prompt">Press SPACE to respond</h1>
+    <p id="result"></p>
+    <script>
+        const prompt = document.getElementById("prompt");
+        const result = document.getElementById("result");
+        const startTime = Date.now();
+        function handleResponse (event) {
+            if (event.code === 'Space') {
+                const rt = Date.now() - startTime;
+                result.textContent = `Your Reaction Time: ${rt}`;
+                prompt.style.color = '#22c55e';
+                prompt.textContent = 'Response recorded!'
+                document.removeEventListener('keydown', handleResponse);
+            } else {return;};
+        };
+        document.addEventListener('keydown', handleResponse);
+    </script>
+</body>
+</html>

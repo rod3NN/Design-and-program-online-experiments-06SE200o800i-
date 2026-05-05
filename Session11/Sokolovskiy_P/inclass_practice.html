@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/jspsych@8.2.3"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@2.1.0"></script>
+    <script src="https://unpkg.com/@jspsych/plugin-canvas-keyboard-response@2.1.0"></script>
+    <link href="https://unpkg.com/jspsych@8.2.3/css/jspsych.css" rel="stylesheet" type="text/css" >
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const jsPsych = initJsPsych();
+        // timeline
+        const nest_timeline = {
+            type: jsPsychHtmlKeyboardResponse,
+            choices: [" ", "f"],
+            timeline: [
+                {stimulus: 'trial 1'},
+                {stimulus: 'trial 2'},
+                {stimulus: 'trial 3'}
+            ]
+        };
+
+        //Stroop Task
+        const stroopStimuli = [
+            {word: 'RED', color: "red", congruent: true},
+            {word: 'GREEN', color: "red", congruent: false},
+            {word: 'RED', color: "green", congruent: false}
+        ];
+
+        const stroopTrial = {
+            type: jsPsychHtmlKeyboardResponse,
+            choices: ["a", "l"],
+            stimulus: function () {
+                const word = jsPsych.evaluateTimelineVariable('word');
+                const color = jsPsych.evaluateTimelineVariable('color');
+                return `<p style="color:${color}">${word}</p>`
+            },
+            data: function () {
+                return {
+                    task: 'stroop',
+                    cond: "color",
+                    word: jsPsych.evaluateTimelineVariable('word'),
+                    color: jsPsych.evaluateTimelineVariable('color'),
+                    congruent: jsPsych.evaluateTimelineVariable('congruent')
+                };
+            },
+            on_finish: function(data) {
+                data.correct_key = data.color == "red" ? "a" : "l";
+                data.correct = (data.response === data.correct_key);
+            }
+        };
+
+        const stroopBlock = {
+            timeline: [stroopTrial],
+            timeline_variables: stroopStimuli,
+            randomize_order: true
+        };
+
+        jsPsych.run(stroopBlock);
+        // jsPsych.run(nest_timeline);
+    </script>
+</body>
+</html>
